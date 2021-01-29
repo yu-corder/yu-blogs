@@ -1,0 +1,23 @@
+<%= form_with model: @blogpost, local: true do |f| %>
+    <div class = "form-group">
+        <%= f.label :title, 'Ttile' %>
+        <%= f.text_field :title, {class:"form-control"} %>
+    </div>
+    <div class = "form-group">
+        <%= f.label :read, 'Read' %>
+        <%= f.text_field :read, {class:"form-control"} %>
+    </div>
+    <div class = "form-group">
+        <%= f.label :image %>
+        <%= f.file_field :image, accept: "image/png, image/jpeg, image/gif" %>
+    </div>
+    <div class = "form-group">
+        <%= f.label :content, 'Content' %>
+        <%= f.rich_text_area :content %>
+    </div>
+    <div class = "form-group">
+    <%= f.label :bloggenre_id %>
+    <%= f.collection_select :bloggenre_id, @genre, :id, :name , {}, {class: "form-control"}%>
+    </div>
+    <p><%= f.submit "作成" %></p>
+<% end %>

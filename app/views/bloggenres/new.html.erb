@@ -1,2 +1,9 @@
-<h1>Bloggenres#new</h1>
-<p>Find me in app/views/bloggenres/new.html.erb</p>
+<h1 class = "display-4 text-primary">ジャンルの新規作成</h1>
+<% if @bloggenre.errors.any? %>
+<ul>
+  <% @bloggenre.errors.full_messages.each do |err| %>
+    <li><%= err %></li>
+  <% end %>
+</ul>
+<% end %>
+<%= render partial: 'form' %>

@@ -1,0 +1,2 @@
+module YuBlogsHelper
+end

@@ -1,0 +1,22 @@
+<h1 class = "h3 search-result">検索結果です</h1>
+<p class = "hit-text"><%= @results.total_count %>件ヒット</p>
+<article class = "d-flex flex-fill justify-content-around flex-wrap ">
+<% if @results.present? %>
+    <% @results.each do |result| %>
+        <section class = "blog-box col-md-5 ">
+        <a class = "blog-link" href = "/yu_blogs/show/<%= result.id %>">
+        <p><%= image_tag result.image.variant(resize_to_fill:[800,600]).processed, class:'img-fluid img-thumbnail' if result.image.attached? %></p>
+        <span class = "time"><%= result.created_at.to_s(:datetime_jp) %></span>
+        <span class = "genre-name">- <%= @genre[result.bloggenre_id - 1].name %> -</sapn>
+        <h3 class = "blog-title"><%= result.title %></h3>
+        <p><%= result.read %></p>
+        </a>
+        </section>
+    <% end %>
+<% else %>
+    <p class = "hit-text">ヒット無し</p>
+<% end %>
+</article>
+<div class = "navigate">
+<div class = "paginate"><%= paginate @results %></div>
+</div>

@@ -9,6 +9,8 @@ COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 COPY . /app
+RUN yarn install --check-files
+RUN bundle exec rails webpacker:compile
 RUN yarn add jquery
 
 COPY entrypoint.sh /usr/bin/

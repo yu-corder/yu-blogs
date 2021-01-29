@@ -11,6 +11,7 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
+require('jquery')
+require('test/blogs')
 require("trix")
 require("@rails/actiontext")

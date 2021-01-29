@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyBlog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <%= stylesheet_link_tag 'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'actiontext', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/424ac5601c.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body class = "container">
+    <header class = "header">
+      <h1 class = "display-4 mb-4"><a href = "/yu_blogs">YU-BLOG</a></h1>
+      <p class = "contact" id = "contact">CONTACT</p>
+      <nav class = "nav">
+      <ul class = "list-bundle">
+        <li class = "nav-list"><a href = "https://twitter.com/yu63001712"><i class="fab fa-twitter"></i></a></li>
+        <li class = "nav-list"><a href = "https://github.com/yu-corder"><i class="fab fa-github"></i></a></li>
+        <li class = "nav-list nav-close" id = "nav-close">Close</li>
+      </ul>
+      </nav>
+    </header>
+    <hr>
+    <div class = "box top-box">
+        <main class = "main" id = "main">
+          <div class = "top hide" id = "top">
+            <h2 class = "genre-show"><i class="fas fa-star"></i>ジャンル別<i class="fas fa-star"></i></h2>
+            <ul class = "top-list-bundle">
+              <% Bloggenre.all.each do |genre| %>
+                <li class = "genres top-list"><a href = "/yu_blogs/genre/<%= genre.id %>"><%= genre.name %></a></li>
+              <% end %>
+            </ul>
+            <%= search_form_for(@q, url:search_yu_blogs_path) do |f| %>
+              <%= f.search_field :read_cont %>
+              <br>
+              <%= f.submit %>
+            <% end %>
+          </div>
+        <%= yield %>
+        </main>
+        <aside class = "side" id = "side">
+          <p class = "logo-box"><%= image_tag 'yublogman.png', class: 'bloglogo' %></p>
+          <h2 class = "profile"><i class="fas fa-star"></i>管理人の紹介<i class="fas fa-star"></i></h2>
+          <p class = "profile-text">
+            管理人のユーです。！<br>
+            上の意味不明な絵はユー<br>
+            と思ってくださいwww
+          </p>
+          <h2 class = "genre-show"><i class="fas fa-star"></i>ジャンル別<i class="fas fa-star"></i></h2>
+          <% Bloggenre.all.each do |genre| %>
+            <p class = "genres"><a href = "/yu_blogs/genre/<%= genre.id %>"><%= genre.name %></a></p>
+          <% end %>
+          <%= search_form_for(@q, url:search_yu_blogs_path) do |f| %>
+            <%= f.search_field :read_cont %>
+            <br>
+            <%= f.submit %>
+          <% end %>
+        </aside>
+    </div>
+    <footer class = "mt-5 text-center small text-scondary border-top border-scondary">2020 YU-Blog.</footer>
+  </body>
+</html>
