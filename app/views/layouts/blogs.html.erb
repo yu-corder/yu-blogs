@@ -16,7 +16,7 @@
       <h1 class = "display-4 mb-4"><a href = "/yu_blogs">YU-BLOG</a></h1>
       <p class = "contact" id = "contact">CONTACT</p>
       <nav class = "nav">
-      <ul class = "list-bundle">
+      <ul class = "nav-ul">
         <li class = "nav-list"><a href = "https://twitter.com/yu63001712"><i class="fab fa-twitter"></i></a></li>
         <li class = "nav-list"><a href = "https://github.com/yu-corder"><i class="fab fa-github"></i></a></li>
         <li class = "nav-list nav-close" id = "nav-close">Close</li>
@@ -28,7 +28,7 @@
         <main class = "main" id = "main">
           <div class = "top hide" id = "top">
             <h2 class = "genre-show"><i class="fas fa-star"></i>ジャンル別<i class="fas fa-star"></i></h2>
-            <ul class = "top-list-bundle">
+            <ul class = "top-ul">
               <% Bloggenre.all.each do |genre| %>
                 <li class = "genres top-list"><a href = "/yu_blogs/genre/<%= genre.id %>"><%= genre.name %></a></li>
               <% end %>
@@ -46,8 +46,8 @@
           <h2 class = "profile"><i class="fas fa-star"></i>管理人の紹介<i class="fas fa-star"></i></h2>
           <p class = "profile-text">
             管理人のユーです。！<br>
-            上の意味不明な絵はユー<br>
-            と思ってくださいwww
+            ただいま色々勉強中です。<br>
+            よろしくお願いします。
           </p>
           <h2 class = "genre-show"><i class="fas fa-star"></i>ジャンル別<i class="fas fa-star"></i></h2>
           <% Bloggenre.all.each do |genre| %>

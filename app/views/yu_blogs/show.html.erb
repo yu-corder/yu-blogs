@@ -1,9 +1,11 @@
-<section>
-    <h2 class = "mb-5 show-title"><%= @blogpost.title %></h2>
-    <div class = "show-box">
-        <p class ="show-time"><%= '[' + @blogpost.created_at.to_s(:datetime_jp) + ']' %></p>
-        <span class = "show-genre-link"><a href = "/yu_blogs/genre/<%= @blogpost.bloggenre_id %>">- <%= @genre[@blogpost.bloggenre_id - 1].name %> -</a></sapn>
-    </div>
-    <p class = "blog-content"><%= @blogpost.content %></p>
-    <p class = "home"><a href = "/yu_blogs">ホームへ戻る</a></p>
-</section>
+<article>
+    <section>
+        <h2 class = "mb-5 show-title"><%= @blogpost.title %></h2>
+        <div class = "show-box">
+            <p class ="show-time"><%= '[' + @blogpost.created_at.to_s(:datetime_jp) + ']' %></p>
+            <span class = "show-genre-link"><a href = "/yu_blogs/genre/<%= @blogpost.bloggenre_id %>">- <%= @genre[@blogpost.bloggenre_id - 1].name %> -</a></sapn>
+        </div>
+        <p class = "blog-content"><%= @blogpost.content %></p>
+        <p class = "home"><a href = "/yu_blogs">ホームへ戻る</a></p>
+    </section>
+</article>
