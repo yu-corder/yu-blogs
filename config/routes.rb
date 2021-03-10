@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'yu_blogs', to: 'yu_blogs#index'
 
   get 'yu_blogs/genre/:id', to: 'yu_blogs#genre'
   get 'yu_blogs/genre/:id/:page', to: 'yu_blogs#genre'
