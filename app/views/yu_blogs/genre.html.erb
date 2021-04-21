@@ -1,17 +1,17 @@
 <h2 class = "h3 mb-4 genre-page"><%= @genre.name %></h2>
 <article class = "d-flex flex-fill justify-content-around flex-wrap ">
-<% @data.each do |obj| %>
-    <section class = "blog-box col-md-5 ">
-      <a class = "blog-link" href = "/yu_blogs/show/<%= obj.id %>">
-      <p><%= image_tag obj.image.variant(resize_to_fill:[800,600]).processed, class:'img-fluid img-thumbnail' if obj.image.attached? %></p>
-      <span class = "time"><%= obj.created_at.to_s(:datetime_jp) %></span>
-      <span class = "genre-name">- <%= @genre.name %> -</span>
-      <h3 class = "blog-title"><%= obj.title %></h3>
-      <p><%= obj.read %></p>
-      </a>
-    </section>
-<% end %>
+    <% @data.each do |obj| %>
+        <section class = "blog-box col-md-5 ">
+            <a class = "blog-link" href = "/yu_blogs/show/<%= obj.id %>">
+            <p><%= image_tag obj.image.variant(resize_to_fill:[800,600]).processed, class:'img-fluid img-thumbnail' if obj.image.attached? %></p>
+            <span class = "time"><%= obj.created_at.to_s(:datetime_jp) %></span>
+            <span class = "genre-name">- <%= @genre.name %> -</span>
+            <h3 class = "blog-title"><%= obj.title %></h3>
+            <p><%= obj.read %></p>
+            </a>
+        </section>
+    <% end %>
 </article>
 <div class = "navigate mt-4">
-  <div><%= paginate @data %></div>
+    <div><%= paginate @data %></div>
 </div>

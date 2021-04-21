@@ -1,16 +1,16 @@
 <h1 class = "display-4 text-primary">ブログのジャンル</h1>
 <p>ジャンル一覧</p>
 <table class = "table">
-  <tr>
-    <th>ID</th><th>Name</th><th></th>
-  </tr>
-  <% @data.each do |obj| %>
-  <tr>
-    <td><%= obj.id %></td>
-    <td><%= obj.name %></td>
-    <td><a href = "/bloggenres/<%= obj.id %>">Edit</a><td>
-  </tr>
-  <% end %>
+    <tr>
+        <th>ID</th><th>Name</th><th></th>
+    </tr>
+    <% @data.each do |obj| %>
+    <tr>
+        <td><%= obj.id %></td>
+        <td><%= obj.name %></td>
+        <td><a href = "/bloggenres/<%= obj.id %>">Edit</a><td>
+    </tr>
+    <% end %>
 </table>
 <p><a href = "/bloggenres/new">ジャンル追加</a></p>
 <p><a href = "/blogposts">ブログ投稿ページへ</a></p>

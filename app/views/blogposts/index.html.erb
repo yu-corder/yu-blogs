@@ -1,19 +1,19 @@
 <h1 class = "display-4 text-primary">Yu-Blog</h1>
 <p>*投稿記事の一覧</p>
 <table class = "table">
-  <tr>
-    <th>タイトル</th><th>見出し</th><th>ジャンル</th><th colspan = "2"></th>
-  </tr>
-  <% @data.each do |obj| %>
-  <tr>
-    <td><%= obj.id %></td>
-    <td><%= obj.title %></td>
-    <td><%= obj.read %></td>
-    <td><%= obj.bloggenre.name %></td>
-    <td><a href = "/blogposts/<%= obj.id %>">編集</a></td>
-    <td><a href = "/blogposts/destroy/<%= obj.id %>">削除</a></td>
-  </tr>
-  <% end %>
+    <tr>
+        <th>タイトル</th><th>見出し</th><th>ジャンル</th><th colspan = "2"></th>
+    </tr>
+    <% @data.each do |obj| %>
+        <tr>
+            <td><%= obj.id %></td>
+            <td><%= obj.title %></td>
+            <td><%= obj.read %></td>
+            <td><%= obj.bloggenre.name %></td>
+            <td><a href = "/blogposts/<%= obj.id %>">編集</a></td>
+            <td><a href = "/blogposts/destroy/<%= obj.id %>">削除</a></td>
+        </tr>
+    <% end %>
 </table>
 <p><a href = "/blogposts/new">新規作成</a></p>
 <p><a href = "/bloggenres">ジャンル一覧ページへ</a></p>

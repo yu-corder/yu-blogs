@@ -1,35 +1,35 @@
 class BloggenresController < ApplicationController
-  layout 'blog'
-  before_action :authenticate_account!
-  def index
-    @data = Bloggenre.all
-  end
-
-  def new
-    @bloggenre = Bloggenre.new
-  end
-
-  def create
-    @bloggenre = Bloggenre.new
-    if request.post? then
-      @bloggenre = Bloggenre.create bloggenre_params
-      redirect_to '/bloggenres'
+    layout 'blog'
+    before_action :authenticate_account!
+    def index
+        @data = Bloggenre.all
     end
-  end
 
-  def edit
-    @bloggenre = Bloggenre.find params[:id]
-  end
-
-  def update
-    @bloggenre = Bloggenre.find params[:id]
-    if request.patch? then
-      @bloggenre.update bloggenre_params
-      redirect_to '/bloggenres'
+    def new
+        @bloggenre = Bloggenre.new
     end
-  end
-  private
-  def bloggenre_params
-    params.require(:bloggenre).permit(:name)
-  end
+
+    def create
+        @bloggenre = Bloggenre.new
+        if request.post? then
+            @bloggenre = Bloggenre.create bloggenre_params
+            redirect_to '/bloggenres'
+        end
+    end
+
+    def edit
+        @bloggenre = Bloggenre.find params[:id]
+    end
+
+    def update
+        @bloggenre = Bloggenre.find params[:id]
+        if request.patch? then
+            @bloggenre.update bloggenre_params
+            redirect_to '/bloggenres'
+        end
+    end
+    private
+    def bloggenre_params
+        params.require(:bloggenre).permit(:name)
+    end
 end
